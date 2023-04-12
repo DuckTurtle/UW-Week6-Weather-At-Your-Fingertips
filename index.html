@@ -14,7 +14,8 @@
     <header class="align-center justify-center">
         <h1>Weather at your Fingertips</h1>
     </header>
-    <div class="flex-row align-center" id="searchBox">
+    <div class="row">
+    <div class="flex-row align-center col-3" id="searchBox">
         <h2>Search for a city:</h2>
         <form>
         <input id="cityTypeBox" class="form-input" type="text" placeholder="Type a City!">
@@ -22,7 +23,7 @@
         <button id="searchBnt">Search!</button>
         <div id="weathertext"></div>
     </div>
-    <div id="result">
+    <div id="result" class="col-9">
             <div id="currentDay">
 
             </div>
@@ -31,6 +32,7 @@
 
             </div>
     </div>
+</div>
 </body>
 <script src="https://cdn.jsdelivr.net/npm/dayjs@1/dayjs.min.js"></script>
 <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>

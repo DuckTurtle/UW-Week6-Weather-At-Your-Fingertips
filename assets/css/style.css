@@ -15,6 +15,7 @@ input{
     background-color: rgb(49, 159, 233);
 
 }
+
 button{
     margin-top: 7px;
     width: 260px;
@@ -24,17 +25,21 @@ button{
     justify-content: center;
 }
 #searchBox{
+    margin-right: 5px;
     font-size: 30px;
     max-width: 265px;
-    display: flex;
-    flex-wrap: wrap;
-    flex-direction:row;
+    height: 100%;
+    display: block;
     padding: 7px;
-    margin: 5px;
+    margin-left: 5px;
 
 }
 .bold{
-
+ font-weight: 400;
+}
+#5dayforcast{
+    display: flex;
+    flex-direction: row;
 }
 #weathertext{
     margin-top: 10px;
@@ -43,9 +48,17 @@ button{
     border-top:2px;
     border-color:black;
 }
+.weatherBlock, img{
+    padding-right:30px;
+}
 .weatherBlock{
-    height: 450px;
+    display: inline-flex;
+    flex-direction: row;
+    margin: 20px;
+    flex-wrap: wrap;
+    height: 300px;
     width: 200px;
+    color:antiquewhite;
     background-color: rgb(34, 33, 33);
     font-size: 15px;
 }
