@@ -1,0 +1,51 @@
+*{
+    font-family: 'Quicksand', sans-serif;
+}
+h1{
+    font-size: 45px;
+    background-color: rgb(6, 133, 12);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+input{
+    width: 250px;
+}
+#searchBnt{
+    background-color: rgb(49, 159, 233);
+
+}
+button{
+    margin-top: 7px;
+    width: 260px;
+    background-color: gray;
+    border-radius: 7px;
+    align-items: center;
+    justify-content: center;
+}
+#searchBox{
+    font-size: 30px;
+    max-width: 265px;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction:row;
+    padding: 7px;
+    margin: 5px;
+
+}
+.bold{
+
+}
+#weathertext{
+    margin-top: 10px;
+    width: 265px;
+    border: solid;
+    border-top:2px;
+    border-color:black;
+}
+.weatherBlock{
+    height: 450px;
+    width: 200px;
+    background-color: rgb(34, 33, 33);
+    font-size: 15px;
+}
