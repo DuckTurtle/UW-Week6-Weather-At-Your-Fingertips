@@ -5,6 +5,7 @@ var searchBnt = $("#searchBnt");
 var weatherAPIBase = "http://api.openweathermap.org/data/2.5/weather?q=" + city + "&appid=" + apiKey + "&mode=xml";
 var date = dayjs().format("MM/DD/YYYY");
 var runs = 0;
+var historySearch = document.querySelector("#weathertext");
 //calls the weather api with given city.
 async function getWeather (){
     var weatherAPI = "http://api.openweathermap.org/data/2.5/weather?q=" + city + "&appid=" + apiKey + "&units=imperial";
@@ -33,7 +34,7 @@ async function getOtherDayWeather (){
  async function setCurrentDay(){
     var data = await getWeather(city);
     console.log(data);
-    if (!city){
+    if (!data){
         console.error("Please input a City");
         return;
     }
@@ -116,8 +117,27 @@ function clearOldStuff(){
       }
 };
 
+function createPastButton(){ 
+    var oldSearchBnt = document.createElement ("button");
+    oldSearchBnt.setAttribute("aria-label", "history");
+    oldSearchBnt.textContent=city;
+    historySearch.appendChild(oldSearchBnt);
 
+    oldSearchBnt.addEventListener("click", function (){
+        city = oldSearchBnt.textContent;
+        if( runs >= 1){
+            clearOldStuff();
+            }
+            runs++
+        setCurrentDay(city);
+        otherDayForcast(city);
+    })
+};
+function clearTextBox(){
+ var inputBox = $("#cityTypeBox");
+ inputBox.val("");
 
+}
 
 
 // event listoner that calls all the data when clicked.
@@ -129,6 +149,8 @@ searchBnt.on("click", function (event){
     }
     setCurrentDay(city);
     otherDayForcast(city);
+    createPastButton(city);
+     clearTextBox();
     runs++
 });
 
