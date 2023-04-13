@@ -2,13 +2,13 @@
 var apiKey = "5282121f1a385049aa27e309e97fc347";
 var city = document.querySelector('#cityTypeBox').value;
 var searchBnt = $("#searchBnt");
-var weatherAPIBase = "http://api.openweathermap.org/data/2.5/weather?q=" + city + "&appid=" + apiKey + "&mode=xml";
+var weatherAPIBase = "https://api.openweathermap.org/data/2.5/weather?q=" + city + "&appid=" + apiKey + "&mode=xml";
 var date = dayjs().format("MM/DD/YYYY");
 var runs = 0;
 var historySearch = document.querySelector("#weathertext");
 //calls the weather api with given city.
 async function getWeather (){
-    var weatherAPI = "http://api.openweathermap.org/data/2.5/weather?q=" + city + "&appid=" + apiKey + "&units=imperial";
+    var weatherAPI = "https://api.openweathermap.org/data/2.5/weather?q=" + city + "&appid=" + apiKey + "&units=imperial";
     let dataResults = fetch(weatherAPI)
     .then(function(response){
         var results = response.json();
@@ -20,7 +20,7 @@ async function getWeather (){
 }
 //calls the forcast and waits to pass it on till the api responds.
 async function getOtherDayWeather (){
-    var forcastAPI = "http://api.openweathermap.org/data/2.5/forecast?q=" + city + "&appid=" + apiKey + "&units=imperial";
+    var forcastAPI = "https://api.openweathermap.org/data/2.5/forecast?q=" + city + "&appid=" + apiKey + "&units=imperial";
     let dataResults = fetch(forcastAPI)
     .then(function(response){
         var results = response.json();
