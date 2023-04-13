@@ -18,7 +18,7 @@ async function getWeather (){
         let data = await dataResults;
         return data;
 }
-//calls the forcast
+//calls the forcast and waits to pass it on till the api responds.
 async function getOtherDayWeather (){
     var forcastAPI = "http://api.openweathermap.org/data/2.5/forecast?q=" + city + "&appid=" + apiKey + "&units=imperial";
     let dataResults = fetch(forcastAPI)
@@ -34,37 +34,39 @@ async function getOtherDayWeather (){
  async function setCurrentDay(){
     var data = await getWeather(city);
     console.log(data);
+    // checks for valid data
     if (!data){
         console.error("Please input a City");
         return;
     }
+    //creates element for location and date
     var curentDayAnchor = $("#currentDay");
     var daytext = $("<h3>");
     daytext.addClass("");
     daytext.text(data.name + " (" + date + ") ");
     curentDayAnchor.append(daytext);
-
+    // adds weather img
     var coolIcon = $("<img>");
     coolIcon.attr("src", "https://openweathermap.org/img/wn/" + data.weather[0].icon + ".png");
     curentDayAnchor.append(coolIcon);
-
+//  adds tempature element at text
     var tempa = $("<p>");
     tempa.addClass("");
     tempa.text("Temp: " + data.main.temp + "°F");
     curentDayAnchor.append(tempa);
-
+// above but for wind
     var windy = $("<p>");
     windy.addClass("");
     windy.text("Wind: " + data.wind.speed + " MPH");
     curentDayAnchor.append(windy);
-
+// above also but for humidaty
     var water = $("<p>");
     water.addClass("");
     water.text("Humidity: " + data.main.humidity + "%");
     curentDayAnchor.append(water);
 
 };
-// sets text values for forcast blocks.
+// sets text values for forcast blocks. does same stuff as the one above but for the forcast
 async function otherDayForcast(){
     var data = await getOtherDayWeather(city);
     console.log(data);
@@ -104,6 +106,7 @@ async function otherDayForcast(){
     blockbox.append(water);
     }
 };
+// clears old weather text
 function clearOldStuff(){
     var curentday = document.getElementById("currentDay");
     console.log(curentday);
@@ -116,13 +119,13 @@ function clearOldStuff(){
         c5day.removeChild(c5day.firstChild);
       }
 };
-
+//creates a button for the history
 function createPastButton(){ 
     var oldSearchBnt = document.createElement ("button");
     oldSearchBnt.setAttribute("aria-label", "history");
     oldSearchBnt.textContent=city;
     historySearch.appendChild(oldSearchBnt);
-
+    //adds event listener for the old buttons
     oldSearchBnt.addEventListener("click", function (){
         city = oldSearchBnt.textContent;
         if( runs >= 1){
@@ -136,7 +139,7 @@ function createPastButton(){
 function clearTextBox(){
  var inputBox = $("#cityTypeBox");
  inputBox.val("");
-
+// clears the input box
 }
 
 
@@ -154,5 +157,3 @@ searchBnt.on("click", function (event){
     runs++
 });
 
-
-// save past searches to local storge and save as button, clear text box
