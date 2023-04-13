@@ -31,7 +31,7 @@ button{
     height: 100%;
     display: block;
     padding: 7px;
-    margin-left: 5px;
+    margin-left: 20px;
 
 }
 .bold{
@@ -44,8 +44,7 @@ button{
 #weathertext{
     margin-top: 10px;
     width: 265px;
-    border: solid;
-    border-top:2px;
+    border-top:solid;
     border-color:black;
 }
 .weatherBlock, img{
@@ -61,4 +60,8 @@ button{
     color:antiquewhite;
     background-color: rgb(34, 33, 33);
     font-size: 15px;
+}
+#currentDay{
+    border: solid;
+    border-color: rgb(19, 57, 224);
 }
