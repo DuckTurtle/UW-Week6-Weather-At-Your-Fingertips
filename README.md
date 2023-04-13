@@ -14,7 +14,10 @@ There is two main features of this app. The first being the search bar where whe
 is the history bar that holds previous inquiorys of the weather. Clicking on a object in the history bar pulls up the surched weather. The history is reset every time in 
 order to avoid overloading the app, and cluttering the page.
 
-![alt-text](/assets/weatherpic.JPG)
+![alt-text](/assets/images/weatherpic.JPG)
+
+##Website
+https://duckturtle.github.io/UW-Week6-Weather-At-Your-Fingertips/ 
 
 ## License
 MIT License
